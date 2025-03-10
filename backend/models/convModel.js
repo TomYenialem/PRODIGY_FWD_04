@@ -14,7 +14,14 @@ const conversationSchmema = new mongoose.Schema({
       ref: "User",
     },
   ],
-});
+
+},
+{
+  timestamps: true,
+
+}
+
+);
 
 const Conversation = mongoose.model("Conversation", conversationSchmema);
 

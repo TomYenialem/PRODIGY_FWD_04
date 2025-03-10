@@ -19,7 +19,12 @@ const messageschema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
+},
+{
+  timestamps: true, // Automatically adds createdAt and updatedAt fields to the schema.
+ 
+}
+);
 
 const messageTable = mongoose.model("message", messageschema);
 
