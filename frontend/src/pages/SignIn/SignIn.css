@@ -1,0 +1,10 @@
+.pass-container{
+    position: relative;
+   
+}
+.eye-icon{
+    position: absolute;
+    top: 20%;
+    right: 10px;
+    cursor: pointer;
+}

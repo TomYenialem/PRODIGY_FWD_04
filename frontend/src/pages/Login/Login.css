@@ -1,0 +1,103 @@
+
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: rgba(17,25,40,.8);
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(188, 166, 166, 0.1),20px 10px 8px rgba(185, 14, 14, 0.1);
+  color: white;
+  height: 90%;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+background-color: #374151 !important;
+
+
+}
+.all{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100%; */
+    margin: 0 auto;
+}
+
+
+.auth-container h2 {
+  margin-bottom: 20px;
+}
+
+.auth-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  background-color: rgba(11, 39, 90, 0.8);
+  color: white;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #070221;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.auth-container button:hover {
+  background-color: #0056b3;
+}
+
+.auth-container p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.auth-container p button {
+  background: none;
+  border: none;
+  /* color: #007bff; */
+  cursor: pointer;
+}
+
+/* .auth-container p button:hover {
+  text-decoration: underline;
+} */
+
+
+.user-pro-img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+}
+.zoom-image{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.login-container{
+justify-content: center;
+align-items: center;
+height: 50%;
+
+}
