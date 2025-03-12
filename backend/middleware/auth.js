@@ -21,7 +21,7 @@ const auth = async (req, res, next) => {
       }
 
       const userId = decoded.id;
-      console.log(userId)
+      console.log(userId);
 
       const user = await User.findById(userId);
 
@@ -42,7 +42,6 @@ const auth = async (req, res, next) => {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ msg: "Internal server error" });
-
   }
 };
 

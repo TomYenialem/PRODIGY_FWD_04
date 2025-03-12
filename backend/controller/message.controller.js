@@ -31,9 +31,9 @@ const messages = async (req, res) => {
     if (newmessage) {
       connversion.message.push(newmessage._id);
     }
-    // await newmessage.save();
-    // await connversion.save();
-await promise.all([newmessage.save(),connversion.save()])
+    await newmessage.save();
+    await connversion.save();
+// await promise.all([newmessage.save(),connversion.save()])
     return res.status(StatusCodes.CREATED).json(newmessage);
   } catch (error) {
     console.error(error);

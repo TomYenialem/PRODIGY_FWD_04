@@ -1,8 +1,10 @@
 const User = require("../models/userModel");
 
+const StatusCodes = require("http-status-codes");
+
 const getUsers = async (req, res) => {
   try {
-    const auth_user = req.user._id;
+    // const auth_user = req.user._id;
     // const users = await User.find({ _id: { $ne: auth_user } }); // Exclude the authenticated user
     const users = await User.find();
     res.status(StatusCodes.OK).json(users);

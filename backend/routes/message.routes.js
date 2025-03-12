@@ -1,5 +1,5 @@
 const express = require("express");
-const {messages,getMessages} = require("../controller/message");
+const {messages,getMessages} = require("../controller/message.controller");
 const auth =require("../middleware/auth");
 const messageRoute = express.Router();
 

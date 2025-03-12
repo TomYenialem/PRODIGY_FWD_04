@@ -1,8 +1,7 @@
 const { StatusCodes } = require("http-status-codes");
 const bycrpt = require("bcrypt");
 const User = require("../models/userModel");
-const jwt =require('jsonwebtoken')
-
+const jwt = require("jsonwebtoken");
 
 const loginController = async (req, res) => {
   const { email, password } = req.body;
@@ -29,15 +28,16 @@ const loginController = async (req, res) => {
       email: user.email,
       name: user.username,
     };
-    const token = jwt.sign(payloads, process.env.SECRET_KEY, { expiresIn: "1h" });
+    const token = jwt.sign(payloads, process.env.SECRET_KEY, {
+      expiresIn: "1h",
+    });
 
-    res.cookie('token',token,{
-        expires: new Date(Date.now() + 3600000), // 1 hour
-        httpOnly: true,
-        secure: false, // set to true for HTTPS
-        sameSite: 'none'  
-    })
-
+    res.cookie("token", token, {
+      expires: new Date(Date.now() + 3600000), // 1 hour
+      httpOnly: true,
+      secure: false, // set to true for HTTPS
+      sameSite: "lax",
+    });
 
     res.status(StatusCodes.ACCEPTED).json({
       msg: " succesfully login",
@@ -48,7 +48,6 @@ const loginController = async (req, res) => {
         profilepic: user.profilepic,
       },
     });
-
 
     // return res.status(StatusCodes.ACCEPTED).json({ msg: "login accepted" });
   } catch (error) {
