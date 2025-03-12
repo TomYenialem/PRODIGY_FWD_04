@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { Toaster } from "react-hot-toast";
-import './App.css'
-import SignIn from './pages/SignIn/SignIn'
-import {Routes ,Route} from 'react-router-dom'
-import Login from './pages/Login/login';
+import "./App.css";
+import SignIn from "./pages/SignIn/SignIn";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login/login";
+import { useContextApi } from "./context/UseContext";
+import Home from "./Components/Home/Home";
 
 function App() {
-const [show,setShow]=useState(false)
+  const [show, setShow] = useState(false);
+  const { authUser } = useContextApi();
 
   return (
     <>
@@ -14,24 +17,16 @@ const [show,setShow]=useState(false)
         <Routes>
           <Route
             path="/"
-            element={<Login/>}
+            element={authUser ? <Navigate to={"/home"} /> : <Login />}
           />
           <Route
             path="/signin"
-            element={<SignIn/>}
+            element={authUser ? <Navigate to={"/home"} /> : <SignIn />}
           />
-          {/* <Route
+          <Route
             path="/home"
-            element={
-              <div>
-                {authUser ? (
-                  <Home show={show} setShow={setShow} />
-                ) : (
-                  <Navigate to={"/"} />
-                )}
-              </div>
-            }
-          /> */}
+            element={<div>{authUser ? <Home /> : <Navigate to={"/"} />}</div>}
+          />
         </Routes>
         <Toaster />
       </div>
@@ -39,4 +34,4 @@ const [show,setShow]=useState(false)
   );
 }
 
-export default App
+export default App;

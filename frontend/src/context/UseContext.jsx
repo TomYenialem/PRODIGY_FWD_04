@@ -8,6 +8,8 @@ export const useContextApi = () => useContext(contextApi);
 function UseContext({ children }) {
   const navigate = useNavigate();
   const[authUser,setAuthUser]=useState()
+    const [message, setMessage] = useState([]);
+    const [coversation, setConversation] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -28,8 +30,13 @@ function UseContext({ children }) {
   return (
     <contextApi.Provider
       value={{
-        authUser
-       
+        authUser,
+        setAuthUser,
+        message,
+        setMessage,
+        coversation,
+        setConversation,
+   
       }}
     >
       {children}

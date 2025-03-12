@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import Api from "../utils/Api";
 import toast from "react-hot-toast";
 import welcomemessages from "../assets/sound/welcome.mp3";
+import { useNavigate } from "react-router-dom";
+import { useContextApi } from "../context/UseContext";
 function UseLogin() {
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const {    setAuthUser}=useContextApi()
 
   const login = async () => {
     if (!email || !password) {
@@ -23,7 +27,8 @@ function UseLogin() {
       );
       toast.success("Logged in successfully!");
       console.log(data.user);
-      localStorage.setItem("token", JSON.stringify(data.user));
+          setAuthUser(data.user)
+           localStorage.setItem("token", JSON.stringify(data.user));
       const welcome = new Audio(welcomemessages);
       welcome.play();
 

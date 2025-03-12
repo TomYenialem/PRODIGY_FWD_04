@@ -1,0 +1,275 @@
+.chat{
+ text-align: center;
+}
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+   box-shadow: 0px 1px 3px rgba(255,255,255,.9);
+    position: fixed;
+    width: 67%;
+    z-index: 1000;
+    margin: -10px auto;
+    left: 30%;
+    background-color:#1E293B;
+   
+}
+
+.user-name{
+    display: flex;
+    gap: 20px;
+    text-align: center;
+}
+.user-name .text{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: center;
+}
+.user-name img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.address{
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+}
+.bottom{
+    display: flex;
+ 
+    padding: 30px 10px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+ 
+    margin-bottom: auto;
+    width: 95%;
+
+}
+.cameras{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+cursor: pointer;
+}
+.middle-input{
+     background-color: rgba(17,25,40,.8);
+     flex: 2;
+     border-radius: 10px;
+     box-shadow: 0px 0px 10px rgba(255,255,255,.9);
+
+}
+
+
+/* middle texts */
+.middle {
+    flex: 1;
+    padding: 20px;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height :50vh;
+  
+    background-color: red;
+   
+}
+.middle::-webkit-scrollbar{
+    display: none;
+}
+.send-message{
+    max-width: 70%;
+    display: flex;
+    gap: 10px;
+    text-align: start;
+     background-color: rgba(17,25,40,.8);
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+.send-message span{
+    font-size: 12px;
+}
+.own{
+    align-self: flex-end;
+    background-color: rgb(15, 43, 199);
+    padding: 10px;
+    border-radius: 10px;
+}
+.send-message img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* bottom */
+.middle-input input{
+    background-color: transparent;
+    padding: 5px 20px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 8px ;
+   
+}
+.send{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.send span:first-child{
+    color: yellow;
+}
+.send span:last-child:hover{
+    color: green;
+}
+
+.main-emoji{
+    position: relative;
+}
+.emoji-picker{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.no_chat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 70vh; */
+    font-size: 38px;
+    box-shadow: none !important;;
+}
+
+.send-message {
+  max-width: 70%; /* Prevent the text from taking up too much space */
+  word-break: break-word; /* Break long words onto the next line */
+  word-wrap: break-word;
+}
+
+.send-message img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.send-message.own {
+  align-self: flex-start;
+  background-color: #434a52; /* Sent message background */
+  color: white;
+  max-width: 80%; /* Limit the width of messages */
+  word-wrap: break-word; /* Ensure long words break to the next line */
+  word-break: break-word;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+.send-message.reciver {
+   align-self: flex-end;
+  background-color:  #1a73e8; /* Sent message background */
+  color: white;
+  max-width: 80%; /* Limit the width of messages */
+  word-wrap: break-word; /* Ensure long words break to the next line */
+  word-break: break-word;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.send-message.own .text {
+  font-size: 13px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.text p {
+  margin: 0;
+}
+
+.text span {
+
+  color: #aaa;
+}
+
+.own::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 10px;
+  border-color: transparent transparent transparent #434a52;
+}
+
+.send-message.reciver::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 10px 8px 0;
+  border-color: transparent #1a73e8 transparent transparent;
+}
+
+.updating{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 65vh;
+    background-color: transparent
+  
+}
+.start_message{
+
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+    flex-direction: column;
+    gap: 10px;
+}
+.start_message span{
+    color: yellow;
+}
+
+
+/* @media (max-width: 767px) {
+    }
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+   box-shadow: none;
+  
+    width: 100%;
+    z-index: 1000;
+    margin: -10px auto;
+    left: 10%;
+    background-color:#1E293B;
+   
+} */

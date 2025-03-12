@@ -4,15 +4,8 @@ import { BeatLoader } from "react-spinners";
 import UseLogin from "../../Hooks/UseLogin";
 
 const Login = () => {
-  const {
-    login,
-    isLoading,
-    password,
-    setPassword,
-    email,
-    setEmail,
-
-  } = UseLogin();
+  const { login, isLoading, password, setPassword, email, setEmail } =
+    UseLogin();
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +35,7 @@ const Login = () => {
               // required
             />
 
-            <button type="submit">
+            <button type="submit" disabled={isLoading}>
               {isLoading ? <BeatLoader color="white" size={10} /> : "Login"}
             </button>
           </form>

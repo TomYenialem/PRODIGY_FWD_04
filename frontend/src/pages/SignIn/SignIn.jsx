@@ -75,7 +75,7 @@ const {signIn,
               onChange={(e) => setConfirmPass(e.target.value)}
               // required
             />
-            <button type="submit">
+            <button type="submit" disabled={isLoading}>
               {isLoading ? <BeatLoader color="white" size={10} /> : "Register"}
             </button>
           </form>

@@ -1,0 +1,149 @@
+.user {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 77vh;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #c5d1e7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #230101;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #242424;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+  gap: 20px;
+}
+.user-img {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.user-img img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.user-icons {
+  display: flex;
+  gap: 10px;
+}
+.sr {
+  font-size: 14px;
+}
+.user-search {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
+}
+.search-bar {
+  background-color: rgba(17, 25, 40, 0.5);
+  align-items: center;
+  display: flex;
+  padding: 4px;
+  gap: 10px;
+}
+.user-search input {
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+  border: none;
+}
+.add {
+  background-color: rgba(17, 25, 40, 0.5);
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+}
+/* items section */
+.items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+   position: relative;
+  border-bottom: 1px solid gray;
+}
+.online{
+  position: relative;
+}
+.online-btn{
+  color: rgb(16, 218, 16);
+  position: absolute;
+  left: 50px;
+  top: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 20px;
+  background-color: rgb(16, 218, 16);
+}
+.items:hover {
+  /* background-color: rgba(202, 204, 208, 0.1); */
+  cursor: pointer;
+}
+.items img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+}
+.text span {
+  font-weight: bold;
+}
+.text span {
+  font-size: 14px;
+  color: ghostwhite;
+}
+
+.bg-item {
+  background-color: rgb(178, 52, 52);
+  font-size: 40px;
+}
+
+.no_user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  color: white;
+  font-size: 24px;
+}
+
+@media (max-width:769px){
+.user{
+  display: none;
+  border-right: none;
+}
+}

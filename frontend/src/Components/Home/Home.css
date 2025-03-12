@@ -1,0 +1,18 @@
+.home_container {
+  display: flex;
+  width: 80vw;
+  height: 80vh; /* Fixed height for the container */
+  backdrop-filter: blur(26px) saturate(190%);
+  border-radius: 10px;
+ color: white;
+}
+.home-wrapper{
+    margin: 30px;
+}
+.chat_cont{
+    flex: 1;
+}
+
+
+
+
