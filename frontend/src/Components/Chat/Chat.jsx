@@ -41,8 +41,7 @@ const {   message,isLoading,}=UseGetMessages()
     }
   };
 
-  const sendMessage = async (e) => {
-    e.preventDefault();
+  const sendMessage = async () => {
        await sendMessagetoUser()
   };
 

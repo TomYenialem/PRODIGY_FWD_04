@@ -4,6 +4,7 @@ import user from "../../assets/images/user.jpg";
 import { TiMessages } from "react-icons/ti";
 
 import { useContextApi } from "../../context/UseContext";
+
 function ChatForm({ message }) {
   const { authUser, coversation } = useContextApi()
   const messagesakes = message?.shakeMessage ? "shake" : "";
@@ -16,8 +17,12 @@ function ChatForm({ message }) {
             key={index}
             className={`send-message ${
               messages.sender === coversation._id ? `own` : `reciver`
+
             } ${messages.shakeMessage ? "shake" : ""}`}
+
           >
+            
+        
             <div className="text">
               <p>{messages.message}</p>
               <span>{formatChatTime(messages.timestamp)}</span>

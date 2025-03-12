@@ -9,6 +9,7 @@ function UseGetMessages() {
    
    useEffect(() => {
      const allMessages = async () => {
+            if (!coversation?._id) return; 
 
          setIsLoading(true);
        try {

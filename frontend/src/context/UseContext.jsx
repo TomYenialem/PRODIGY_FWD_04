@@ -25,7 +25,7 @@ function UseContext({ children }) {
       }
     }
   }, []); 
-  console.log(authUser);
+ 
 
   return (
     <contextApi.Provider

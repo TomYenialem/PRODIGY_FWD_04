@@ -1,32 +1,51 @@
-import React, { useContext } from "react";
+import React from "react";
 import usersImg from "../../assets/images/user.jpg";
-// import { authContext } from "../Context/ContextApi";
-// import { soketContext } from "../Context/SoketApi";
 import { useContextApi } from "../../context/UseContext";
+import { useSocket } from "../../context/UseSocketApi";
 
 function UserForm({ user }) {
-//   const { onlineUser } = useContext(soketContext);
+  const { coversation, setConversation } = useContextApi();
+  const { onlineUser } = useSocket();
 
-  const { coversation, setConversation } =useContextApi()
-  const isSelected = coversation?._id === user._id;
-//   const isOnline = onlineUser.includes(user._id);
-//   console.log(user._id);
-//   console.log(isOnline);
+  // Ensure user is defined
+  if (!user) {
+    return null;
+  }
+
+  const isSelected = coversation?._id === user?._id;
+  const isOnline = onlineUser.includes(user._id); // ✅ Check online status
 
   return (
     <div>
       <div
         className={`items ${isSelected ? "bg-item" : ""}`}
-        key={user.id}
+        key={user._id}
         onClick={() => setConversation(user)}
+        style={{ position: "relative" }} // Ensure relative positioning
       >
-        <img src={user?.profilepic || usersImg} alt="" />
-        <div>
-          <h1 style={{ color: "red" }}></h1>
-        </div>
+        <img
+          src={user?.profilepic || usersImg}
+          alt=""
+          style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+        />
+
+        {/* ✅ Green dot for online users */}
+        {isOnline && (
+          <span
+            style={{
+              position: "absolute",
+              top: "56%",
+              right: "70%",
+              width: "10px",
+              height: "10px",
+              backgroundColor: "red",
+              borderRadius: "50%",
+            }}
+          ></span>
+        )}
+
         <div className="text">
           <span>{user.username}</span>
-          {/* <p className="latest-msg">selma nw</p> */}
         </div>
       </div>
     </div>
