@@ -1,13 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const mongoDb = require("./Db/mongodb");
-const app = express();
+
 const signinRouter = require("./routes/signin.routes");
 const loginRouter = require("./routes/login.routes");
 const messageRoute = require("./routes/message.routes");
 const cookieparser = require("cookie-parser");
 const getAllUsers = require("./routes/getUsers.routes");
 const logoutRouter = require("./routes/logout.routes")
+const {httpServer,app}=require('./Socket/Socket')
 const cors = require("cors");
 
 const port = 5000;
@@ -25,8 +26,7 @@ app.use(loginRouter);
 app.use(messageRoute);
 app.use(getAllUsers);
 app.use(logoutRouter)
-
-app.listen(port, () => {
+httpServer.listen(port, () => {
   mongoDb();
   console.log("Server is running on port 5000");
 });
