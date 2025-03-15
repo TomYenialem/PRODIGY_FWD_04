@@ -17,18 +17,27 @@ import ChatForm from "./ChatForm";
 import UseSendMessage from "../../Hooks/UseSendMessage";
 import { useContextApi } from "../../context/UseContext";
 import UseGetMessages from "../../Hooks/UseGetMessages";
+import UseSocketMessage from "../../Hooks/UseSocketMessage";
 
-export default function Chat() {
+export default function Chat({setShowUsers}) {
+
+    const handleUserClick = () => {
+      if (window.innerWidth < 769) {
+        setShowUsers(false); 
+      }
+    };
+
   // soketMessages();
+  UseSocketMessage();
 
   const [emoji, setEmoji] = useState(false);
   // const { sendPhotoMessages } = sendPhoto();
-const { sendMessagetoUser,messageInput,setMessageInput,isloading}=UseSendMessage()
-const {   message,isLoading,}=UseGetMessages()
+  const { sendMessagetoUser, messageInput, setMessageInput, isloading } = UseSendMessage();
+  const { message, isLoading } = UseGetMessages();
 
-  const { coversation, authUser, setConversation } = useContextApi()
+  const { coversation, authUser, setConversation } = useContextApi();
 
-  const [loading,setLoading]=useState(false)
+  const [loading, setLoading] = useState(false);
   // send message and images
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -42,13 +51,13 @@ const {   message,isLoading,}=UseGetMessages()
   };
 
   const sendMessage = async () => {
-       await sendMessagetoUser()
+    await sendMessagetoUser();
   };
 
   // enable function with enter keyword
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-     sendMessage()
+      sendMessage();
     }
   };
 
@@ -84,10 +93,10 @@ const {   message,isLoading,}=UseGetMessages()
           <TiMessages className="no_msg" />
         </div>
       ) : (
-        <div className="chat_body">
+        <div className="chat_body" onClick={handleUserClick}>
           <div className="top">
             <div className="user-name">
-              <img src={coversation.profilepic} alt="" />
+              <img src={coversation.profilepic} alt="" width={"50px"} />
               <div className="text">
                 <h2>{coversation.username}</h2>
                 <p>Last seen :</p>
@@ -102,7 +111,7 @@ const {   message,isLoading,}=UseGetMessages()
             <p className="updating">Updating....</p>
           ) : (
             <div className="middle" onClick={removeEmoji}>
-              <ChatForm message={message}/>
+              <ChatForm message={message} />
               <div ref={endRef}></div>
             </div>
           )}
@@ -144,11 +153,11 @@ const {   message,isLoading,}=UseGetMessages()
                 ) : (
                   <IoMdSend
                     onClick={
-                    //   () => {
-                    //   if (!isloading) sendMessage();
-                    // }
-                    sendMessage
-                  }
+                      //   () => {
+                      //   if (!isloading) sendMessage();
+                      // }
+                      sendMessage
+                    }
                   />
                 )}
               </span>

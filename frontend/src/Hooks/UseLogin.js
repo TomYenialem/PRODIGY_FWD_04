@@ -26,7 +26,7 @@ function UseLogin() {
         }
       );
       toast.success("Logged in successfully!");
-      console.log(data.user);
+
           setAuthUser(data.user)
            localStorage.setItem("token", JSON.stringify(data.user));
       const welcome = new Audio(welcomemessages);

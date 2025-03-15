@@ -24,7 +24,7 @@ function UseSendMessage() {
           withCredentials: true,
         }
       );
-      console.log(response.data);
+
       setMessage([...message, response.data]);
       setMessageInput("");
 

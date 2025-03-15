@@ -11,21 +11,19 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import UseAllUsers from "../../Hooks/UseAllUsers";
 import { useContextApi } from "../../context/UseContext";
 
-export default function User() {
+export default function User({ showUsers, setShowUsers }) {
   const [add, setAdd] = useState(false);
-  const { allUserData, isloding } = UseAllUsers()
-  const { authUser } = useContextApi()
+  const { allUserData, isloding } = UseAllUsers();
+  const { authUser } = useContextApi();
   const [menu, setMenu] = useState(true);
   const [search, setSearch] = useState("");
 
-  const searchUser =allUserData.filter((user) =>
+  const searchUser = allUserData.filter((user) =>
     user.username.toLowerCase().includes(search.toLowerCase())
   );
 
-
   return (
     <div className="user">
-      {menu && <GiHamburgerMenu />}
       <div className="user-search">
         <div className="search-bar">
           <FaSearch className="sr" />
@@ -33,7 +31,7 @@ export default function User() {
             type="text"
             placeholder="search"
             value={search}
-            onChange={(e)=>setSearch(e.target.value)}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <div className="add">
@@ -47,7 +45,9 @@ export default function User() {
           ) : (
             <>
               {searchUser.map((user, index) => {
-                return <UserForm user={user} key={index} />;
+                return <UserForm user={user} key={index} 
+                setShowUsers={setShowUsers} showUsers={showUsers}
+                />;
               })}
             </>
           )}

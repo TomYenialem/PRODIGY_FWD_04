@@ -128,7 +128,7 @@
 }
 
 .bg-item {
-  background-color: rgb(178, 52, 52);
+  background-color:oklch(0.379 0.146 265.522);
   font-size: 40px;
 }
 
@@ -141,9 +141,6 @@
   font-size: 24px;
 }
 
-@media (max-width:769px){
-.user{
-  display: none;
-  border-right: none;
-}
+.user {
+  display: block;
 }

@@ -1,4 +1,4 @@
-.header{
+/* .header{
 
     border-bottom: 1px solid white;
   
@@ -18,7 +18,7 @@
 }
 
 @media(max-width:767px){
-    /* Styles for smaller screens */
+  
     .header_container{
        width: 100%;
     }
@@ -54,14 +54,11 @@
   overflow-y: auto;
 }
 
-/* Responsive Design */
 @media (max-width: 769px) {
   .user_cont {
     flex: 0;
     width: 100%;
-    /* display: none;  */
-    /* position: absolute; */
-    /* z-index: 1000; */
+    
     top: 0px;
     left: 400px;
     background: #1E293B;
@@ -72,7 +69,7 @@
   }
 
   .user_cont.show {
-    display: block; /* Show sidebar when toggled */
+    display: block; 
   }
 
   .chat_cont {
@@ -82,7 +79,7 @@
   }
 }
 
-/* Toggle button for mobile */
+
 .toggle-button {
   display: none;
   position: fixed;
@@ -100,4 +97,45 @@
   .toggle-button {
     display: block;
   }
+} */
+
+.header{
+  border-bottom: 1px solid white ;
+  margin-bottom: 15px;
+}
+
+.header_container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 5px 30px;
+
+}
+.logout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+}
+.logout button {
+  cursor: pointer;
+  padding: 10px 15px ;
+  background-color:oklch(0.379 0.146 265.522);
+  border: none;
+  color: white;
+  border-radius: 10px;
+}
+@media (max-width:769px){
+  
+.header_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 0px;
+  gap: 80px;
+
+}
 }

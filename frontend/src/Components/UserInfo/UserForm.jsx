@@ -3,9 +3,15 @@ import usersImg from "../../assets/images/user.jpg";
 import { useContextApi } from "../../context/UseContext";
 import { useSocket } from "../../context/UseSocketApi";
 
-function UserForm({ user }) {
+function UserForm({ user,setShowUsers}) {
   const { coversation, setConversation } = useContextApi();
   const { onlineUser } = useSocket();
+
+   const handleUserClick = () => {
+     if (window.innerWidth < 769) {
+       setShowUsers(false); 
+     }
+   };
 
   // Ensure user is defined
   if (!user) {
@@ -13,14 +19,18 @@ function UserForm({ user }) {
   }
 
   const isSelected = coversation?._id === user?._id;
-  const isOnline = onlineUser.includes(user._id); // ✅ Check online status
+  const isOnline = onlineUser.includes(user._id); 
+  const handleUsers=()=>{
+ setConversation(user)
+ handleUserClick()
+  }
 
   return (
     <div>
       <div
         className={`items ${isSelected ? "bg-item" : ""}`}
         key={user._id}
-        onClick={() => setConversation(user)}
+        onClick={handleUsers}
         style={{ position: "relative" }} // Ensure relative positioning
       >
         <img

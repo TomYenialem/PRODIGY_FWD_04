@@ -6,12 +6,50 @@
   border-radius: 10px;
  color: white;
 }
-.home-wrapper{
-    margin: 30px;
+.user_cont {
+  /* flex: 0.3; */
+  height: 100%;
+  border-right: 1px solid white;
+  padding: 10px;
+  overflow-y: auto;
+  display: block;
 }
+
+/* Small screens: Hide user list by default */
+@media (max-width: 768px) {
+  .user_cont {
+    position: absolute;
+    top: -10px; /* Adjust for header */
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: #1a1a1a;
+    z-index: 1000;
+    padding: 10px;
+  }
+}
+
+/* Menu button styles */
+.menu-toggle {
+  position: absolute;
+  top: -55px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 1100;
+}
+
 .chat_cont{
     flex: 1;
 }
+
+
+
+
+
 
 
 
