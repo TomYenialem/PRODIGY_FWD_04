@@ -3,7 +3,7 @@ import { Toaster } from "react-hot-toast";
 import "./App.css";
 import SignIn from "./pages/SignIn/SignIn";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Login from "./pages/Login/login";
+import Login from "./pages/Login/Login";
 import { useContextApi } from "./context/UseContext";
 import Home from "./Components/Home/Home";
 
