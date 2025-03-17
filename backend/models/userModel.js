@@ -24,6 +24,11 @@ const userschema = new mongoose.Schema({
     type: String,
     default: "",
   },
+  lastseen: {
+    type: Date,
+    default: Date.now,
+  },
+  isOnline: { type: Boolean, default: false },
 });
 const User = mongoose.model("User", userschema);
 

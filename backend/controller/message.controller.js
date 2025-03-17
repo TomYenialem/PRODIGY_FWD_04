@@ -1,6 +1,8 @@
 const { StatusCodes } = require("http-status-codes");
 const messageTable = require("../models/messageModel");
 const Conversation = require("../models/convModel");
+const { receiverSocketId ,io} = require("../Socket/Socket");
+
 
 
 const messages = async (req, res) => {
@@ -31,9 +33,20 @@ const messages = async (req, res) => {
     if (newmessage) {
       connversion.message.push(newmessage._id);
     }
-    await newmessage.save();
-    await connversion.save();
-// await promise.all([newmessage.save(),connversion.save()])
+    // await newmessage.save();
+    // await connversion.save();
+    await Promise.all([newmessage.save(),connversion.save()])
+
+  const reciverId = receiverSocketId(reciver_id);
+  const senderId = receiverSocketId(sender_id);
+
+  if (reciverId) {
+    io.to(reciverId).emit("receiveMessage", newmessage);
+  }
+  if (senderId) {
+    io.to(senderId).emit("receiveMessage", newmessage);
+  }
+
     return res.status(StatusCodes.CREATED).json(newmessage);
   } catch (error) {
     console.error(error);
