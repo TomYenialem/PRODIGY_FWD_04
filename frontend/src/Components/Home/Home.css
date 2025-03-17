@@ -1,10 +1,11 @@
 .home_container {
   display: flex;
   width: 80vw;
-  height: 80vh; /* Fixed height for the container */
+  height: 73vh; 
   backdrop-filter: blur(26px) saturate(190%);
   border-radius: 10px;
  color: white;
+
 }
 .user_cont {
   /* flex: 0.3; */
@@ -22,7 +23,7 @@
     top: -10px; /* Adjust for header */
     left: 0;
     width: 250px;
-    height: 100vh;
+  
     background: #1a1a1a;
     z-index: 1000;
     padding: 10px;

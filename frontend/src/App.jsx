@@ -9,7 +9,10 @@ import Home from "./Components/Home/Home";
 
 function App() {
   const [show, setShow] = useState(false);
-  const { authUser } = useContextApi();
+  const { authUser,tokenValue } = useContextApi();
+
+
+
 
   return (
     <>
@@ -17,15 +20,23 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={authUser ? <Navigate to={"/home"} /> : <Login />}
+            element={authUser && tokenValue ? <Navigate to={"/home"} /> : <Login />}
           />
           <Route
             path="/signin"
-            element={authUser ? <Navigate to={"/home"} /> : <SignIn />}
+            element={authUser && tokenValue? <Navigate to={"/home"} /> : <SignIn />}
           />
           <Route
             path="/home"
-            element={<div>{authUser ? <Home /> : <Navigate to={"/"} />}</div>}
+            element={
+              <div>
+                {authUser&& tokenValue ? (
+                  <Home show={show} setShow={setShow} />
+                ) : (
+                  <Navigate to={"/"} />
+                )}
+              </div>
+            }
           />
         </Routes>
         <Toaster />

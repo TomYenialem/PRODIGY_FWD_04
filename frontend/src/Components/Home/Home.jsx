@@ -27,7 +27,6 @@ function Home({ show, setShow }) {
     <div className="home-wrapper">
       <Header show={show} setShow={setShow} />
       <div className="home_container">
-        {/* Show menu button on small screens */}
         {window.innerWidth < 769 && (
           <button
             className="menu-toggle"
@@ -36,8 +35,6 @@ function Home({ show, setShow }) {
             <GiHamburgerMenu />
           </button>
         )}
-
-        {/* Conditionally render User component only when showUsers is true */}
         {showUsers && (
           <div className="user_cont">
             <User showUsers={showUsers} setShowUsers={setShowUsers} />

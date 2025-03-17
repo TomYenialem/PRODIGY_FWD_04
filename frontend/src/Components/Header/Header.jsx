@@ -1,6 +1,7 @@
 import React from "react";
 import { FaToggleOff } from "react-icons/fa6";
 import { FaToggleOn } from "react-icons/fa";
+
 import usersImg from "../../assets/images/user.jpg";
 import "./Header.css";
 import { useContextApi } from "../../context/UseContext";
@@ -9,9 +10,12 @@ import UseLogout from "../../Hooks/UseLogout";
 function Header({ show, setShow }) {
   const { logout } = UseLogout();
   const { authUser } = useContextApi();
-  const handleShowToggle = () => {
-    setShow((prev) => (prev === true ? false : true));
-  };
+ const handleShowToggle = () => {
+   setShow((prev) => {
+     console.log("Previous show state:", prev);
+     return !prev;
+   });
+ };
   const handleLogout = async () => {
     await logout()
   };
@@ -26,9 +30,9 @@ function Header({ show, setShow }) {
         </div>
         <div className="logout">
           <button onClick={handleLogout}>Logout</button>
-          <span onClick={handleShowToggle}>
-            {show ? <FaToggleOn /> : <FaToggleOff />}
-          </span>
+          <p onClick={handleShowToggle} className="toggler">
+            {show ?  <FaToggleOff />:<FaToggleOn /> }
+          </p>
         </div>
       </div>
     </div>

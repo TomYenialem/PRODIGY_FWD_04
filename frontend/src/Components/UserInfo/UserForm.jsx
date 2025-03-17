@@ -26,7 +26,7 @@ function UserForm({ user,setShowUsers}) {
   }
 
   return (
-    <div>
+    <div className="userforms">
       <div
         className={`items ${isSelected ? "bg-item" : ""}`}
         key={user._id}
@@ -41,15 +41,9 @@ function UserForm({ user,setShowUsers}) {
 
         {/* ✅ Green dot for online users */}
         {isOnline && (
-          <span
+          <span className="isonline"
             style={{
-              position: "absolute",
-              top: "56%",
-              right: "70%",
-              width: "10px",
-              height: "10px",
-              backgroundColor: "red",
-              borderRadius: "50%",
+             
             }}
           ></span>
         )}

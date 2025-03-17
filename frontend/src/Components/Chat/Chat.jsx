@@ -18,6 +18,7 @@ import UseSendMessage from "../../Hooks/UseSendMessage";
 import { useContextApi } from "../../context/UseContext";
 import UseGetMessages from "../../Hooks/UseGetMessages";
 import UseSocketMessage from "../../Hooks/UseSocketMessage";
+import LastSeen from "../../Hooks/LastSeen";
 
 export default function Chat({setShowUsers}) {
 
@@ -36,6 +37,8 @@ export default function Chat({setShowUsers}) {
   const { message, isLoading } = UseGetMessages();
 
   const { coversation, authUser, setConversation } = useContextApi();
+
+  console.log(coversation)
 
   const [loading, setLoading] = useState(false);
   // send message and images
@@ -90,7 +93,7 @@ export default function Chat({setShowUsers}) {
         <div className="no_chat">
           <p>Welcome {authUser.name}👋</p>
           <p>Select a chat to start messaging</p>
-          <TiMessages className="no_msg" />
+          <TiMessages className="no_msg"  />
         </div>
       ) : (
         <div className="chat_body" onClick={handleUserClick}>
@@ -99,7 +102,9 @@ export default function Chat({setShowUsers}) {
               <img src={coversation.profilepic} alt="" width={"50px"} />
               <div className="text">
                 <h2>{coversation.username}</h2>
-                <p>Last seen :</p>
+                {
+                  <LastSeen userId={coversation._id}/>
+                }
               </div>
             </div>
             <div className="address">

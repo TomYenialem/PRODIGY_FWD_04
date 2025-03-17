@@ -9,28 +9,27 @@ function UseSocketApi({ children }) {
   const [socketIo, setSocket] = useState(null);
   const [onlineUser, setOnlineUser] = useState([]);
   const { authUser } = useContextApi();
+useEffect(() => {
+  if (authUser && !socketIo) {
+    const socket = io("http://127.0.0.1:5000", {
+      query: { userId: authUser.id },
+      withCredentials: true,
+      transports: ["websocket"],
+    });
 
- useEffect(() => {
-   if (authUser && !socketIo) {
-     // ✅ Only create a new socket if it doesn't exist
-     const socket = io("http://localhost:5000", {
-       query: { userId: authUser.id },
-       withCredentials: true,
-       transports: ["websocket"],
-     });
+    console.log("Socket initialized:", socket); // ✅ Log the actual socket instance
+    setSocket(socket); // ✅ Update state
 
-     setSocket(socket);
+    socket.on("onlineuser", (users) => {
+      setOnlineUser(users);
+    });
 
-     socket.on("onlineuser", (users) => {
-       setOnlineUser(users);
-     });
-
-     return () => {
-       socket.disconnect();
-       setSocket(null);
-     };
-   }
- }, [authUser]);
+    return () => {
+      socket.disconnect();
+      setSocket(null);
+    };
+  }
+}, [authUser]);
 
 
   return (

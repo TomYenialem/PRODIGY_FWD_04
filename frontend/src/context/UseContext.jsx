@@ -7,9 +7,11 @@ export const useContextApi = () => useContext(contextApi);
 
 function UseContext({ children }) {
   const navigate = useNavigate();
-  const[authUser,setAuthUser]=useState()
-    const [message, setMessage] = useState([]);
-    const [coversation, setConversation] = useState(null);
+  const [authUser, setAuthUser] = useState();
+  const [tokenValue, setTokenValue] = useState();
+  const [message, setMessage] = useState([]);
+  const [coversation, setConversation] = useState(null);
+ 
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -19,13 +21,26 @@ function UseContext({ children }) {
         // Only parse if it's a valid JSON string (if your token is a JSON object)
         setAuthUser(JSON.parse(token));
       } catch (e) {
-       
         console.error("Error parsing token:", e);
         setAuthUser(null);
       }
     }
-  }, []); 
- 
+  }, []);
+
+  useEffect(() => {
+    const authCheck = async () => {
+      try {
+        const res = await Api.get("/gettoken", {
+          withCredentials: true,
+        });
+
+        setTokenValue(res.data);
+      } catch (error) {
+        navigate("/");
+      }
+    };
+    authCheck();
+  }, []);
 
   return (
     <contextApi.Provider
@@ -36,7 +51,9 @@ function UseContext({ children }) {
         setMessage,
         coversation,
         setConversation,
-   
+        tokenValue,
+        setTokenValue,
+       
       }}
     >
       {children}

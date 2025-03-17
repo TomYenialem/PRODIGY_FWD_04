@@ -1,28 +1,31 @@
 import { useEffect } from "react";
+import notification from "../assets/sound/notification.mp3";
 import { useContextApi } from "../context/UseContext";
 import { useSocket } from "../context/UseSocketApi";
 
 function UseSocketMessage() {
-  const { soketIo } = useSocket();
+  const { socketIo } = useSocket();
   const { message, setMessage } = useContextApi();
 
-  useEffect(() => {
-    if (!soketIo) {
-      console.log("No socket connection");
-      return;
-    }
+useEffect(() => {
+  if (!socketIo) {
+    return;
+  }
 
-    const handleNewMessage = (newMessage) => {
-      console.log("Received new message:", newMessage);
-      setMessage((prevMessages) => [...prevMessages, newMessage]);
-    };
 
-    soketIo.on("receiveMessage", handleNewMessage);
+  const handleNewMessage = (newMessage) => {
+    setMessage((prevMessages) => [...prevMessages, newMessage]);
+      const audio = new Audio(notification);
+      audio.play();
+  };
 
-    return () => {
-      soketIo.off("receiveMessage", handleNewMessage);
-    };
-  }, [soketIo]); // ✅ `setMessage` is already a stable function, so no need to include it
+  socketIo.on("receiveMessage", handleNewMessage);
+
+  return () => {
+    socketIo.off("receiveMessage", handleNewMessage);
+  };
+}, [socketIo]);
+ // ✅ `setMessage` is already a stable function, so no need to include it
 }
 
 export default UseSocketMessage;

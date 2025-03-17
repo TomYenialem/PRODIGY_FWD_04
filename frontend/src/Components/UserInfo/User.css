@@ -1,12 +1,11 @@
 .user {
   flex: 1;
-  overflow-y: auto;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  height: 77vh;
-}
+  height: 100vh;
 
+}
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -71,6 +70,7 @@
   color: white;
   border: none;
 }
+
 .add {
   background-color: rgba(17, 25, 40, 0.5);
   width: 30px;
@@ -87,13 +87,13 @@
   align-items: center;
   gap: 20px;
   padding: 20px;
-   position: relative;
+  position: relative;
   border-bottom: 1px solid gray;
 }
-.online{
+.online {
   position: relative;
 }
-.online-btn{
+.online-btn {
   color: rgb(16, 218, 16);
   position: absolute;
   left: 50px;
@@ -104,7 +104,6 @@
   background-color: rgb(16, 218, 16);
 }
 .items:hover {
-  /* background-color: rgba(202, 204, 208, 0.1); */
   cursor: pointer;
 }
 .items img {
@@ -128,7 +127,7 @@
 }
 
 .bg-item {
-  background-color:oklch(0.379 0.146 265.522);
+  background-color: oklch(0.379 0.146 265.522);
   font-size: 40px;
 }
 
@@ -143,4 +142,22 @@
 
 .user {
   display: block;
+}
+.isonline {
+  position: absolute;
+  top: 59%;
+  right: 77%;
+  width: 10px;
+  height: 10px;
+  background-color: oklch(0.723 0.219 149.579);
+  border-radius: 50%;
+  font-weight: 900;
+}
+@media (max-width:769px){
+  .isonline {
+ 
+  top: 59%;
+  right: 72%;
+;
+}
 }

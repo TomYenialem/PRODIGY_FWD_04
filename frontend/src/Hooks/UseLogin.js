@@ -9,7 +9,7 @@ function UseLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const {    setAuthUser}=useContextApi()
+  const {   setTokenValue,setAuthUser}=useContextApi()
 
   const login = async () => {
     if (!email || !password) {
@@ -28,9 +28,9 @@ function UseLogin() {
       toast.success("Logged in successfully!");
 
           setAuthUser(data.user)
+           setTokenValue(data.user)
            localStorage.setItem("token", JSON.stringify(data.user));
-      const welcome = new Audio(welcomemessages);
-      welcome.play();
+
 
       //   setAuthUser(data.user);
     } catch (error) {
