@@ -16,8 +16,9 @@ const port = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173",
-    "https://prodigy-fwd-04.onrender.com"],
+    origin: ["http://localhost:5173", "https://prodigy-fwd-04.onrender.com"],
+    allowedHeaders: ["Content-Type", "Authorization"], 
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
     credentials: true,
   })
 );

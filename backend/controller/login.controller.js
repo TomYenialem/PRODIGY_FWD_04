@@ -35,8 +35,8 @@ const loginController = async (req, res) => {
     res.cookie("token", token, {
       expires: new Date(Date.now() + 3600000), // 1 hour
       httpOnly: true,
-      secure: false, // set to true for HTTPS
-      sameSite: "lax",
+      secure: true, // set to true for HTTPS
+      sameSite: "none",
     });
 
     res.status(StatusCodes.ACCEPTED).json({
