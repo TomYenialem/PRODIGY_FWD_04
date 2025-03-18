@@ -20,6 +20,7 @@ app.use(
     origin: [
       "https://prodigy-fwd-04-1.onrender.com",
       "https://prodigy-fwd-04.onrender.com",
+      "https://chimerical-begonia-f51b25.netlify.app/",
     ],
     allowedHeaders: ["Content-Type", "Authorization"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
