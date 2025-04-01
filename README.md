@@ -1,6 +1,7 @@
 # Real-Time Chat Application
 
 Visit the live application here: [Real-Time Chat App](https://prodigy-fwd-04-1.onrender.com)
+<img width="941" alt="Screenshot 2025-04-01 213724" src="https://github.com/user-attachments/assets/af99c74f-f448-424f-b62a-cabc1441080d" />
 
 This is a real-time chat application built with **React** for the frontend and **Node.js** with **Express** and **Socket.IO** for the backend. The application supports user authentication, real-time messaging, emoji integration, and toast notifications.
 
