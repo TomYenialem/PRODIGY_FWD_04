@@ -11,7 +11,7 @@ function UseSocketApi({ children }) {
   const { authUser } = useContextApi();
 useEffect(() => {
   if (authUser && !socketIo) {
-    const socket = io("https://prodigy-fwd-04.onrender.com", {
+    const socket = io(" http://localhost:5000'", {
       query: { userId: authUser.id },
       withCredentials: true,
       transports: ["websocket"],
