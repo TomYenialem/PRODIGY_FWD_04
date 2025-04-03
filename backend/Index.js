@@ -19,6 +19,7 @@ app.use(
   cors({
     origin: [
       "https://prodigy-fwd-04-1.onrender.com",
+       "http://localhost:5174",
       "https://prodigy-fwd-04.onrender.com",
       "https://chimerical-begonia-f51b25.netlify.app/",
     ],
